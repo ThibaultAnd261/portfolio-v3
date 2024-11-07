@@ -1,0 +1,120 @@
+---
+import "../styles/color.css";
+import "../styles/font-size.css";
+---
+
+<nav class="navbar bg-gray2-light">
+    <div class="navbar-left">
+        <h3>Thibault A.</h3>
+    </div>
+    <div class="navbar-center">
+        <h4 class="navbar-center-text">
+            Je suis <span class="navbar-center-span" id="label-dynamic"></span>
+        </h4>
+    </div>
+    <div class="navbar-right">
+        <a
+            href="https://www.linkedin.com/in/thibaulta"
+            target="_blank"
+            class="font-lg">LinkedIn</a
+        >
+        <button
+            class="btn-cv font-lg"
+            onclick="window.location.href='/CV-Thibault.pdf';"
+            >Télécharger mon CV</button
+        >
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        z-index: 1000;
+        border-bottom: 1px solid var(--gray-borders-light);
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar-center-text {
+        font-weight: 300;
+    }
+
+    .navbar-center-span {
+        font-size: var(--text-2xl);
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .navbar-right a:hover {
+        text-decoration: underline;
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .navbar-right a {
+        text-decoration: none;
+        color: var(--blue-4);
+    }
+
+    .btn-cv {
+        background-color: var(--sky-solid-light);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .btn-cv:hover {
+        background-color: var(--sky-components-dark);
+    }
+</style>
+
+<script>
+    const labelOptions = [
+        "Thibault Andriamasinoro,",
+        "un développeur web full-stack,",
+        "intéressé au design, à l'interactivité,",
+        "intéressé sur la partie serveur,",
+        "aussi intéressé par d'autres domaines de la tech'.",
+    ];
+
+    let index = 0;
+
+    function changeText() {
+        const textElement = document.getElementById("label-dynamic");
+        if (textElement) {
+            textElement.style.opacity = "0";
+
+            setTimeout(() => {
+                // Mettre à jour le texte après un petit délai
+                textElement.textContent = labelOptions[index];
+                index = (index + 1) % labelOptions.length;
+
+                // Afficher l'élément après la mise à jour
+                textElement.style.opacity = "1";
+            }, 300);
+        }
+    }
+
+    changeText();
+
+    setInterval(changeText, 4000);
+</script>

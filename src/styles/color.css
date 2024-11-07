@@ -1,0 +1,78 @@
+:root {
+    /* Gray colors */
+    --gray-bg1-light: #FCFCFC;
+    --gray-bg1-dark: #111111;
+    --gray-bg2-light: #F9F9F9;
+    --gray-bg2-dark: #191919;
+    --gray-components-light: #E0E0E0;
+    --gray-components-dark: #313131;
+    --gray-borders-light: #BBBBBB;
+    --gray-borders-dark: #606060;
+    --gray-solid-light: #838383;
+    --gray-solid-dark: #7B7B7B;
+    --gray-text-light: #202020;
+    --gray-text-dark: #EEEEEE;
+
+    /* Sky colors */
+    --sky-bg1-light: #F9FEFF;
+    --sky-bg1-dark: #0D141F;
+    --sky-bg2-light: #F1FAFD;
+    --sky-bg2-dark: #111A27;
+    --sky-components-light: #BEE7F5;
+    --sky-components-dark: #154467;
+    --sky-borders-light: #60B3D7;
+    --sky-borders-dark: #197CAE;
+    --sky-solid-light: #74DAF8;
+    --sky-solid-dark: #A8EEFF;
+    --sky-text-light: #1D3E56;
+    --sky-text-dark: #C2F3FF;
+}
+
+/* Example usage */
+.bg-gray1-light {
+    background-color: var(--gray-bg1-light);
+}
+
+.bg-gray1-dark {
+    background-color: var(--gray-bg1-dark);
+}
+
+.bg-gray2-light {
+    background-color: var(--gray-bg2-light);
+}
+
+.bg-gray2-dark {
+    background-color: var(--gray-bg2-dark);
+}
+
+.bg-sky1-light {
+    background-color: var(--sky-bg1-light);
+}
+
+.bg-sky1-dark {
+    background-color: var(--sky-bg1-dark);
+}
+
+.bg-sky2-light {
+    background-color: var(--sky-bg2-light);
+}
+
+.bg-sky2-dark {
+    background-color: var(--sky-bg2-dark);
+}
+
+.text-gray-light {
+    color: var(--gray-text-light);
+}
+
+.text-gray-dark {
+    color: var(--gray-text-dark);
+}
+
+.text-sky-light {
+    color: var(--sky-text-light);
+}
+
+.text-sky-dark {
+    color: var(--sky-text-dark);
+}
