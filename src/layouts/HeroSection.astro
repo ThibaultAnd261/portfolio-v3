@@ -1,0 +1,223 @@
+---
+const roles = {
+    frontend: {
+        label: "Front-end",
+        skills: [
+            "React.js",
+            "Vue.js",
+            "Tailwind",
+            "Typescript",
+            "Javascript",
+            "Figma",
+        ],
+    },
+    backend: {
+        label: "Back-end",
+        skills: [
+            "Laravel",
+            "Symfony",
+            "Adonis.js",
+            "MySql",
+            "phpMyAdmin",
+            "Bruno/Postman",
+        ],
+    },
+};
+
+const otherSkills = ["Linux", "Notion", "GitHub", "VsCode"];
+const networks = ["LinkedIn", "GitHub account", "Téléphone", "Email"];
+---
+
+<section class="container">
+    <div class="left-section">
+        <h1>Thibault ANDRIMASINORO.</h1>
+        <div class="role-select" id="roleSelect">
+            <div class="selected-role">
+                <h3 id="selectedText">Front-end</h3>
+            </div>
+            <div class="role-options">
+                {
+                    Object.entries(roles).map(([id, role]) => (
+                        <div class="role-option" data-value={id}>
+                            {role.label}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="right-section">
+        {
+            Object.entries(roles).map(([id, role]) => (
+                <div
+                    class="skills-section"
+                    data-role={id}
+                    style={`display: ${id === "frontend" ? "block" : "none"}`}
+                >
+                    <h3>Technologies</h3>
+                    <div class="skills-list">
+                        {role.skills.map((skill) => (
+                            <span class="skill-tag">{skill}</span>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+
+        <div class="skills-section">
+            <h3>Autres</h3>
+            <div class="skills-list">
+                {
+                    otherSkills.map((skill) => (
+                        <span class="skill-tag">{skill}</span>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <h3>Réseaux</h3>
+            <div class="skills-list">
+                {
+                    networks.map((network) => (
+                        <span class="skill-tag">{network}</span>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const roleSelect = document.getElementById("roleSelect");
+    const selectedText = document.getElementById("selectedText");
+
+    function updateSkills(roleId: "frontend" | "backend") {
+        if (selectedText) {
+            selectedText.textContent =
+                roleId === "frontend" ? "Front-end" : "Back-end";
+        }
+
+        document.querySelectorAll("[data-role]").forEach((section) => {
+            const display =
+                (section as HTMLElement).dataset.role === roleId
+                    ? "block"
+                    : "none";
+            (section as HTMLElement).style.display = display;
+        });
+    }
+
+    roleSelect?.addEventListener("click", (e) => {
+        roleSelect.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".role-option").forEach((option) => {
+        option.addEventListener("click", (e) => {
+            const value = (e.target as HTMLElement).dataset.value as
+                | "frontend"
+                | "backend";
+            if (value) {
+                updateSkills(value);
+            }
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (roleSelect && !roleSelect.contains(e.target as Node)) {
+            roleSelect.classList.remove("active");
+        }
+    });
+</script>
+
+<style>
+    .container {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 4rem 2rem;
+    }
+
+    .left-section h1 {
+        margin-bottom: 1rem;
+    }
+
+    .role-select {
+        position: relative;
+        cursor: pointer;
+        width: max-content;
+    }
+
+    .selected-role {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        user-select: none;
+    }
+
+    .selected-role::after {
+        content: "↓";
+        font-size: 2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .role-select.active .selected-role::after {
+        transform: rotate(180deg);
+        margin-bottom: -10px;
+    }
+
+    .role-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+        margin-top: 0.5rem;
+        min-width: 200px;
+    }
+
+    .role-select.active .role-options {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .role-option {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .role-option:hover {
+        background-color: #f5f5f5;
+    }
+
+    .skills-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .skills-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .skill-tag {
+        background-color: var(--gray-components-light);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: #333;
+    }
+</style>
