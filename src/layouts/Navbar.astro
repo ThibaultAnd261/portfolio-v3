@@ -13,10 +13,8 @@ import "../styles/font-size.css";
         </h4>
     </div>
     <div class="navbar-right">
-        <a
-            href="https://www.linkedin.com/in/thibaulta"
-            target="_blank"
-            class="font-lg">LinkedIn</a
+        <a href="https://www.linkedin.com/in/thibaulta" target="_blank"
+            >LinkedIn</a
         >
         <button
             class="btn-cv font-lg"
@@ -32,7 +30,8 @@ import "../styles/font-size.css";
         top: 0;
         padding: 1rem 2rem;
         z-index: 1000;
-        border-bottom: 1px solid var(--gray-borders-light);
+        border-bottom: 2px solid var(--black-pure);
+        background-color: var(--beige-bg2-light);
         margin: 0 auto;
         position: relative;
         display: flex;
@@ -47,6 +46,7 @@ import "../styles/font-size.css";
     }
 
     .navbar-center-text {
+        font-family: system-ui, sans-serif;
         font-weight: 300;
     }
 
@@ -74,16 +74,19 @@ import "../styles/font-size.css";
     }
 
     .btn-cv {
-        background-color: var(--sky-solid-light);
-        color: white;
-        border: none;
+        background-color: var(--black-rich);
         padding: 0.5rem 1rem;
-        cursor: pointer;
+        border: none;
         border-radius: 20px;
+        color: var(--beige-bg1-light);
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
     }
 
     .btn-cv:hover {
-        background-color: var(--sky-components-dark);
+        background-color: var(--black-hover);
+        border-bottom: 3px solid var(--amber-borders-light);
+        border-right: 3px solid var(--amber-borders-light);
     }
 
     @media (min-width: 768px) {
@@ -104,7 +107,7 @@ import "../styles/font-size.css";
         }
     }
 
-    @media (min-width: 1180px) {
+    @media (min-width: 1024px) {
         .navbar-center {
             display: block;
             position: absolute;
@@ -117,9 +120,9 @@ import "../styles/font-size.css";
 <script>
     const labelOptions = [
         "Thibault Andriamasinoro,",
-        "un développeur full-stack,",
-        "intéressé par le design, l'interactivité et",
-        "intéressé par le côté serveur.",
+        "un développeur front-end,",
+        "intéressé par le design, l'interactivité mais aussi",
+        "intéressé par le back-end.",
     ];
 
     let index = 0;

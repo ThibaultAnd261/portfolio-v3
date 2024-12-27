@@ -1,78 +1,123 @@
 :root {
-    /* Gray colors */
-    --gray-bg1-light: #FCFCFC;
-    --gray-bg1-dark: #111111;
-    --gray-bg2-light: #F9F9F9;
-    --gray-bg2-dark: #191919;
-    --gray-components-light: #E0E0E0;
-    --gray-components-dark: #313131;
-    --gray-borders-light: #BBBBBB;
-    --gray-borders-dark: #606060;
-    --gray-solid-light: #838383;
-    --gray-solid-dark: #7B7B7B;
-    --gray-text-light: #202020;
-    --gray-text-dark: #EEEEEE;
+    /* Beige colors - Tons chauds et naturels */
+    --beige-bg1-light: #FDFCF7;        /* Beige très clair pour fond principal */
+    --beige-bg1-dark: #1D1C17;         /* Beige très sombre */
+    --beige-bg2-light: #FAF9F2;        /* Beige clair pour sections alternées */
+    --beige-bg2-dark: #2A2925;         /* Beige sombre */
+    --beige-components-light: #F3EFE0;  /* Beige moyen pour composants */
+    --beige-components-dark: #45433C;   /* Beige gris sombre */
+    --beige-borders-light: #E7E2D3;     /* Beige pour bordures */
+    --beige-borders-dark: #7A766C;      /* Beige gris pour bordures sombres */
+    --beige-solid-light: #D5CEB7;       /* Beige solide */
+    --beige-solid-dark: #5A574E;        /* Beige très sombre */
+    --beige-text-light: #2A2925;        /* Beige sombre pour texte */
+    --beige-text-dark: #FAF9F2;         /* Beige clair pour texte sombre */
 
-    /* Sky colors */
-    --sky-bg1-light: #F9FEFF;
-    --sky-bg1-dark: #0D141F;
-    --sky-bg2-light: #F1FAFD;
-    --sky-bg2-dark: #111A27;
-    --sky-components-light: #BEE7F5;
-    --sky-components-dark: #154467;
-    --sky-borders-light: #60B3D7;
-    --sky-borders-dark: #197CAE;
-    --sky-solid-light: #74DAF8;
-    --sky-solid-dark: #A8EEFF;
-    --sky-text-light: #1D3E56;
-    --sky-text-dark: #C2F3FF;
+    /* Amber colors - Accents chauds */
+    --amber-bg1-light: #FFF8E8;         /* Ambre très clair */
+    --amber-bg1-dark: #472005;          /* Ambre très sombre */
+    --amber-bg2-light: #FFF1D4;         /* Ambre clair */
+    --amber-bg2-dark: #7A3810;          /* Ambre sombre */
+    --amber-components-light: #FFE5A8;   /* Ambre moyen */
+    --amber-components-dark: #944210;    /* Ambre foncé */
+    --amber-borders-light: #FCCF45;      /* Ambre vif */
+    --amber-borders-dark: #B65510;       /* Ambre bordure sombre */
+    --amber-solid-light: #F6A520;        /* Ambre solide */
+    --amber-solid-dark: #DA7A10;         /* Ambre solide sombre */
+    --amber-text-light: #944210;         /* Ambre texte */
+    --amber-text-dark: #FFF1D4;          /* Ambre texte clair */
+
+    /* Black colors */
+    --black-pure: #000000;
+    --black-rich: #171614;               /* Noir légèrement chaud */
+    --black-soft: #1C1B18;               /* Noir beige */
+    --black-hover: #2C2B27;              /* Noir beige hover */
+    --black-muted: #353431;              /* Noir beige atténué */
 }
 
-/* Example usage */
-.bg-gray1-light {
-    background-color: var(--gray-bg1-light);
+/* Classes utilitaires pour les fonds */
+.bg-beige1-light {
+    background-color: var(--beige-bg1-light);
 }
 
-.bg-gray1-dark {
-    background-color: var(--gray-bg1-dark);
+.bg-beige1-dark {
+    background-color: var(--beige-bg1-dark);
 }
 
-.bg-gray2-light {
-    background-color: var(--gray-bg2-light);
+.bg-beige2-light {
+    background-color: var(--beige-bg2-light);
 }
 
-.bg-gray2-dark {
-    background-color: var(--gray-bg2-dark);
+.bg-beige2-dark {
+    background-color: var(--beige-bg2-dark);
 }
 
-.bg-sky1-light {
-    background-color: var(--sky-bg1-light);
+.bg-amber1-light {
+    background-color: var(--amber-bg1-light);
 }
 
-.bg-sky1-dark {
-    background-color: var(--sky-bg1-dark);
+.bg-amber1-dark {
+    background-color: var(--amber-bg1-dark);
 }
 
-.bg-sky2-light {
-    background-color: var(--sky-bg2-light);
+.bg-amber2-light {
+    background-color: var(--amber-bg2-light);
 }
 
-.bg-sky2-dark {
-    background-color: var(--sky-bg2-dark);
+.bg-amber2-dark {
+    background-color: var(--amber-bg2-dark);
 }
 
-.text-gray-light {
-    color: var(--gray-text-light);
+/* Classes utilitaires pour le texte */
+.text-beige-light {
+    color: var(--beige-text-light);
 }
 
-.text-gray-dark {
-    color: var(--gray-text-dark);
+.text-beige-dark {
+    color: var(--beige-text-dark);
 }
 
-.text-sky-light {
-    color: var(--sky-text-light);
+.text-amber-light {
+    color: var(--amber-text-light);
 }
 
-.text-sky-dark {
-    color: var(--sky-text-dark);
+.text-amber-dark {
+    color: var(--amber-text-dark);
+}
+
+/* Classes pour les noirs */
+.bg-black {
+    background-color: var(--black-rich);
+}
+
+.bg-black-soft {
+    background-color: var(--black-soft);
+}
+
+.bg-black-hover {
+    background-color: var(--black-hover);
+}
+
+.text-black {
+    color: var(--black-rich);
+}
+
+/* Gradients utilitaires */
+.bg-gradient-warm-light {
+    background: linear-gradient(to right, var(--amber-bg1-light), var(--beige-bg1-light));
+}
+
+.bg-gradient-warm-dark {
+    background: linear-gradient(to right, var(--amber-bg1-dark), var(--beige-bg1-dark));
+}
+
+/* Style bouton CV */
+.button-cv {
+    background-color: var(--black-rich);
+    color: var(--beige-bg1-light);
+    transition: background-color 0.3s ease;
+}
+
+.button-cv:hover {
+    background-color: var(--black-hover);
 }
