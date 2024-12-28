@@ -104,7 +104,7 @@
 
 /* Gradients utilitaires */
 .bg-gradient-warm-light {
-    background: linear-gradient(to right, var(--amber-bg1-light), var(--beige-bg1-light));
+    background: linear-gradient(to right, var(--beige-bg2-light) 40%, var(--amber-bg1-light) 100%);
 }
 
 .bg-gradient-warm-dark {

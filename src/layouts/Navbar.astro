@@ -3,24 +3,25 @@ import "../styles/color.css";
 import "../styles/font-size.css";
 ---
 
-<nav class="navbar bg-gray2-light">
-    <div class="navbar-left">
-        <h3>Thibault A.</h3>
-    </div>
-    <div class="navbar-center">
-        <h4 class="navbar-center-text">
-            Je suis <span class="navbar-center-span" id="label-dynamic"></span>
-        </h4>
-    </div>
-    <div class="navbar-right">
-        <a href="https://www.linkedin.com/in/thibaulta" target="_blank"
-            >LinkedIn</a
-        >
-        <button
-            class="btn-cv font-lg"
-            onclick="window.location.href='/CV-Thibault.pdf';"
-            >Télécharger mon CV</button
-        >
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-left">
+            <h3>Thibault A.</h3>
+        </div>
+        <div class="navbar-center">
+            <h5 class="navbar-center-text">
+                <!-- TODO: change fontsize -->
+                Je suis <span class="navbar-center-span" id="label-dynamic"
+                ></span>
+            </h5>
+        </div>
+        <div class="navbar-right">
+            <button
+                class="btn-cv font-lg"
+                onclick="window.location.href='/CV-Thibault.pdf';"
+                >Télécharger mon CV</button
+            >
+        </div>
     </div>
 </nav>
 
@@ -32,13 +33,20 @@ import "../styles/font-size.css";
         z-index: 1000;
         border-bottom: 2px solid var(--black-pure);
         background-color: var(--beige-bg2-light);
-        margin: 0 auto;
-        position: relative;
+    }
+
+    .container {
         display: flex;
-        gap: 16px;
         flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
         align-items: center;
-        justify-content: center;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+    .container {
+        /* max-width: 2200px; */
     }
 
     .navbar-center {
@@ -105,9 +113,14 @@ import "../styles/font-size.css";
             left: 50%;
             transform: translateX(-50%);
         }
+
+        .container {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1050px) {
         .navbar-center {
             display: block;
             position: absolute;
@@ -120,9 +133,11 @@ import "../styles/font-size.css";
 <script>
     const labelOptions = [
         "Thibault Andriamasinoro,",
-        "un développeur front-end,",
-        "intéressé par le design, l'interactivité mais aussi",
-        "intéressé par le back-end.",
+        "intéressé par le design,",
+        "intéressé par l'interactivité,",
+        "intéressé par l'UX/UI,",
+        "en bref, un développeur front-end,",
+        "aussi intéressé par le back-end.",
     ];
 
     let index = 0;
