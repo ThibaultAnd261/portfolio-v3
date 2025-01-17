@@ -1,12 +1,13 @@
 ---
 import "../styles/color.css";
 import "../styles/font-size.css";
+import Button from "../components/Button.astro";
 ---
 
 <nav class="navbar">
     <div class="container">
         <div class="navbar-left">
-            <h3>Thibault A.</h3>
+            <h3>TA.</h3>
         </div>
         <div class="navbar-center">
             <h5 class="navbar-center-text">
@@ -16,11 +17,7 @@ import "../styles/font-size.css";
             </h5>
         </div>
         <div class="navbar-right">
-            <button
-                class="btn-cv font-lg"
-                onclick="window.location.href='/CV-Thibault.pdf';"
-                >Télécharger mon CV</button
-            >
+            <Button title="Télécharger mon CV" link=""/>
         </div>
     </div>
 </nav>
@@ -59,7 +56,7 @@ import "../styles/font-size.css";
     }
 
     .navbar-center-span {
-        font-size: var(--text-2xl);
+        font-size: var(--text-xl);
         font-weight: 500;
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
@@ -79,22 +76,6 @@ import "../styles/font-size.css";
     .navbar-right a {
         text-decoration: none;
         color: var(--blue-4);
-    }
-
-    .btn-cv {
-        background-color: var(--black-rich);
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 20px;
-        color: var(--beige-bg1-light);
-        cursor: pointer;
-        transition: all 0.1s ease-in-out;
-    }
-
-    .btn-cv:hover {
-        background-color: var(--black-hover);
-        border-bottom: 3px solid var(--amber-borders-light);
-        border-right: 3px solid var(--amber-borders-light);
     }
 
     @media (min-width: 768px) {
@@ -118,6 +99,16 @@ import "../styles/font-size.css";
             flex-direction: row;
             justify-content: space-between;
         }
+
+        .navbar-center-span {
+            font-size: var(--text-2xl);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .navbar-center-span {
+            font-size: var(--text-3xl);
+        }
     }
 
     @media (min-width: 1050px) {
@@ -132,11 +123,12 @@ import "../styles/font-size.css";
 
 <script>
     const labelOptions = [
-        "Thibault Andriamasinoro,",
+        "un ingénieur logiciel",
+        "spécialisé dans le web",
         "intéressé par le design,",
         "intéressé par l'interactivité,",
         "intéressé par l'UX/UI,",
-        "en bref, un développeur front-end,",
+        "un développeur front-end mais",
         "aussi intéressé par le back-end.",
     ];
 

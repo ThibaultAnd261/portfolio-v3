@@ -1,0 +1,31 @@
+---
+interface Props {
+    title: string;
+    link: string;
+}
+
+const { title, link } = Astro.props;
+---
+
+<button
+    class="btn font-lg"
+    onclick={`window.location.href='${link}'`}
+    >{title}</button
+>
+
+<style>
+    .btn {
+        background-color: var(--black-rich);
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 20px;
+        color: var(--beige-bg1-light);
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: var(--black-hover);
+        border-bottom: 2px solid var(--amber-borders-light);
+        border-right: 3px solid var(--amber-borders-light);
+    }
+</style>
