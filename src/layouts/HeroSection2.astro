@@ -1,3 +1,8 @@
+---
+import { skills } from "../data/skills";
+import Button from "../components/Button.astro";
+---
+
 <section class="section-hero">
     <div class="container bg-gradient-warm-light">
         <div class="hero-content">
@@ -73,83 +78,19 @@
                 </div>
 
                 <div class="hero-skills">
+                    <div class="skills-category">
+                        <Button title="Développement web" link="" />
+                        <Button title="Programmation" link="" />
+                        <Button title="Outils" link="" />
+                        <Button title="Loisirs" link="" />
+                    </div>
                     <div class="skills-grid">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" width="24" height="24" />
-                            <span>TypeScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="PHP" width="42" height="24" />
-                            <span>PHP</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" width="24" height="24" />
-                            <span>C++</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" width="24" height="24" />
-                            <span>C#</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="24" height="24" />
-                            <span>Java</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="24" height="24" />
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="24" height="24" />
-                            <span>MySQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="24" height="24" />
-                            <span>React</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png" alt="Tailwind" width="30" height="24" />
-                            <span>Tailwind</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" alt="Laravel" width="24" height="24" />
-                            <span>Laravel</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/adonisjs/adonisjs-original.svg" alt="AdonisJS" width="24" height="24" />
-                            <span>AdonisJS</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="24" height="24" />
-                            <span>Linux</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" width="24" height="24" />
-                            <span>Unity</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" width="24" height="24" />
-                            <span>Figma</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="24" height="24" />
-                            <span>Postman</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn-icons-png.flaticon.com/512/10169/10169724.png" alt="API" width="24" height="24" />
-                            <span>API</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.prod.website-files.com/602b981692c0c610c4ea335f/6797654be34f7f6b8c0b0135_Logo%20Make.png" alt="Make" width="24" height="24" />
-                            <span>Make</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/2048px-Notion-logo.svg.png" alt="Notion" width="24" height="24" />
-                            <span>Notion</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Diagrams.net_Logo.svg/2048px-Diagrams.net_Logo.svg.png" alt="Draw.io" width="24" height="24" />
-                            <span>Draw.io</span>
-                        </div>
+                        {skills.map((skill) => (
+                            <div class="skill-item">
+                                <img src={skill.icon} alt={skill.alt} width={skill.width} height={skill.height} />
+                                <span>{skill.name}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -233,6 +174,13 @@
         text-align: center;
         padding: 2rem;
         border-radius: 1rem;
+    }
+
+    .skills-category {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
     }
 
     .skills-grid {
@@ -341,6 +289,13 @@
             padding: 0;
             text-align: left;
         }
+
+        .skills-category {
+            display: grid;
+            grid-template-columns: repeat(4, 0.5fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
     }
 
     @media (min-width: 1024px) {
@@ -385,6 +340,12 @@
 
         .skills-grid {
             max-height: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .skills-category {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 </style>
