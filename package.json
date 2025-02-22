@@ -14,6 +14,7 @@
     "@fontsource/dm-sans": "^5.1.0",
     "@fontsource/fraunces": "^5.1.0",
     "astro": "^4.4.15",
+    "astro-icon": "^1.1.5",
     "typescript": "^5.4.2"
   }
 }
