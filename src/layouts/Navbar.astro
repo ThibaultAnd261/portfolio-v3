@@ -1,152 +1,263 @@
 ---
 import "../styles/color.css";
-import "../styles/font-size.css";
-import Button from "../components/Button.astro";
+
+const navLinks = [
+    { href: "#travaux", label: "Travaux", icon: "briefcase" },
+    { href: "#apropos", label: "A propos", icon: "user" },
+    { href: "#competences", label: "Skills", icon: "code" },
+    { href: "#contact", label: "Contact", icon: "mail" },
+];
 ---
 
-<nav class="navbar">
+<!-- Desktop Navbar -->
+<nav class="navbar-desktop">
     <div class="container">
-        <div class="navbar-left">
-            <h3>TA.</h3>
+        <div class="navbar-logo">
+            <a href="#">TA.</a>
         </div>
-        <div class="navbar-center">
-            <h5 class="navbar-center-text">
-                <!-- TODO: change fontsize -->
-                Je suis <span class="navbar-center-span" id="label-dynamic"
-                ></span>
-            </h5>
-        </div>
-        <div class="navbar-right">
-            <Button title="Télécharger mon CV" link=""/>
+        <div class="navbar-links">
+            {navLinks.map((link) => (
+                <a href={link.href} class="nav-link">{link.label}</a>
+            ))}
         </div>
     </div>
 </nav>
 
+<!-- Mobile Navbar -->
+<nav class="navbar-mobile">
+    {navLinks.map((link) => (
+        <a href={link.href} class="nav-link-mobile">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                {link.icon === "briefcase" && (
+                    <Fragment>
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </Fragment>
+                )}
+                {link.icon === "user" && (
+                    <Fragment>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </Fragment>
+                )}
+                {link.icon === "code" && (
+                    <Fragment>
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </Fragment>
+                )}
+                {link.icon === "mail" && (
+                    <Fragment>
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </Fragment>
+                )}
+            </svg>
+            <span class="nav-label">{link.label}</span>
+        </a>
+    ))}
+</nav>
+
 <style>
-    .navbar {
-        position: sticky;
+    /* Desktop Navbar */
+    .navbar-desktop {
+        display: none;
+        position: fixed;
         top: 0;
-        padding: 1rem 2rem;
+        left: 0;
+        right: 0;
         z-index: 1000;
-        border-bottom: 2px solid var(--black-pure);
-        background-color: var(--beige-bg2-light);
+        background: rgba(249, 246, 241, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 4px solid var(--charcoal);
+        animation: slideDown 0.5s var(--transition-smooth) forwards;
     }
 
-    .container {
+    .navbar-desktop .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+    }
+
+    .navbar-logo a {
+        font-family: 'DM Serif Display', serif;
+        font-size: 2rem;
+        color: var(--charcoal);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-logo a:hover {
+        color: var(--terracotta);
+    }
+
+    .navbar-links {
+        display: flex;
+        gap: 2.5rem;
+    }
+
+    .nav-link {
+        position: relative;
+        font-family: 'Karla', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--charcoal);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0.5rem 0;
+        transition: color 0.3s var(--transition-smooth);
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--copper);
+        transition: width 0.4s var(--transition-smooth);
+    }
+
+    .nav-link:hover {
+        color: var(--copper);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Mobile Navbar */
+    .navbar-mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(249, 246, 241, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 4px solid var(--charcoal);
+        padding: 0.5rem 0.25rem;
+        animation: slideUp 0.5s var(--transition-smooth) forwards;
+    }
+
+    .nav-link-mobile {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        gap: 1rem;
         align-items: center;
-        max-width: 1500px;
-        margin: 0 auto;
-    }
-
-    .container {
-        /* max-width: 2200px; */
-    }
-
-    .navbar-center {
-        display: none;
-    }
-
-    .navbar-center-text {
-        font-family: system-ui, sans-serif;
-        font-weight: 300;
-    }
-
-    .navbar-center-span {
-        font-size: var(--text-xl);
-        font-weight: 500;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
-
-    .navbar-right a:hover {
-        text-decoration: underline;
-    }
-
-    .navbar-right {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-    }
-
-    .navbar-right a {
+        justify-content: center;
+        gap: 0.15rem;
+        padding: 0.4rem 0.5rem;
+        min-width: 60px;
+        color: var(--charcoal);
         text-decoration: none;
-        color: var(--blue-4);
+        border-radius: 10px;
+        transition: all 0.3s var(--transition-smooth);
     }
 
-    @media (min-width: 768px) {
-        .navbar {
-            flex-direction: row;
-            justify-content: space-between;
+    .nav-link-mobile:hover,
+    .nav-link-mobile.active {
+        background: var(--sand);
+        color: var(--copper);
+        transform: translateY(-2px);
+    }
+
+    .nav-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+
+    .nav-label {
+        font-family: 'Karla', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* Responsive */
+    @media (min-width: 400px) {
+        .navbar-mobile {
+            padding: 0.6rem 0.5rem;
         }
 
-        .navbar-left,
-        .navbar-right {
-            text-align: left;
+        .nav-link-mobile {
+            padding: 0.5rem 0.75rem;
+            min-width: 70px;
         }
 
-        .navbar-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        .nav-icon {
+            width: 24px;
+            height: 24px;
         }
 
-        .container {
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        .navbar-center-span {
-            font-size: var(--text-2xl);
+        .nav-label {
+            font-size: 0.7rem;
         }
     }
 
-    @media (min-width: 1024px) {
-        .navbar-center-span {
-            font-size: var(--text-3xl);
-        }
-    }
-
-    @media (min-width: 1050px) {
-        .navbar-center {
+    @media (min-width: 1025px) {
+        .navbar-desktop {
             display: block;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        }
+
+        .navbar-mobile {
+            display: none;
         }
     }
 </style>
 
 <script>
-    const labelOptions = [
-        "un ingénieur logiciel",
-        "spécialisé dans le web",
-        "intéressé par le design,",
-        "intéressé par l'interactivité,",
-        "intéressé par l'UX/UI.",
-    ];
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+            if (href) {
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
 
-    let index = 0;
+    // Active state for mobile nav
+    function updateActiveNav() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link-mobile, .nav-link');
 
-    function changeText() {
-        const textElement = document.getElementById("label-dynamic");
-        if (textElement) {
-            textElement.style.opacity = "0";
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = (section as HTMLElement).offsetTop;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id') || '';
+            }
+        });
 
-            setTimeout(() => {
-                textElement.textContent = labelOptions[index];
-                index = (index + 1) % labelOptions.length;
-
-                textElement.style.opacity = "1";
-            }, 300);
-        }
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
     }
 
-    changeText();
-
-    setInterval(changeText, 4000);
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
 </script>

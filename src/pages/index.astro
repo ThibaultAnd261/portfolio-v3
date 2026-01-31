@@ -1,13 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Navbar from "../layouts/Navbar.astro";
-
+import HeroSection from "../layouts/HeroSection.astro";
+import ProjectCarousel from "../components/ProjectCarousel.astro";
+import BentoGrid from "../components/BentoGrid.astro";
 import "../styles/color.css";
-import HeroSection2 from "../layouts/HeroSection2.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Portfolio | Designer & Developpeur Creatif">
 	<Navbar />
-	<HeroSection2 />
+	<main class="main-content">
+		<HeroSection />
+		<ProjectCarousel />
+		<BentoGrid />
+	</main>
 </Layout>
+
+<style>
+	.main-content {
+		min-height: 100vh;
+	}
+</style>

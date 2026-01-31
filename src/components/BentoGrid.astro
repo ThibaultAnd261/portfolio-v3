@@ -1,0 +1,721 @@
+---
+import "../styles/color.css";
+import BentoCard from "./BentoCard.astro";
+
+const technologies = [
+    { name: "React", color: "#61DAFB" },
+    { name: "Vue.js", color: "#42B883" },
+    { name: "TypeScript", color: "#3178C6" },
+    { name: "Tailwind CSS", color: "#06B6D4" },
+    { name: "AdonisJS", color: "#5A45FF" },
+    { name: "Laravel", color: "#FF2D20" },
+    { name: "MySQL", color: "#4479A1" },
+];
+
+const tools = [
+    { name: "GitHub", color: "#181717" },
+    { name: "Figma", color: "#F24E1E" },
+    { name: "Slack", color: "#4A154B" },
+    { name: "Notion", color: "#000000" },
+    { name: "VS Code", color: "#007ACC" },
+    { name: "Docker", color: "#2496ED" },
+];
+
+const languages = [
+    {
+        name: "Français",
+        level: "Langue maternelle - Professionnel (VOLTAIRE : 697)",
+    },
+    { name: "Malgache", level: "Langue maternelle" },
+    { name: "Anglais", level: "Professionnel (TOEIC : 815)" },
+    { name: "Allemand", level: "Scolaire" },
+];
+
+const passions = [
+    {
+        icon: "🏃",
+        label: "Sport",
+        detail: "Basketball, Volleyball, Football,...",
+    },
+    {
+        icon: "✈️",
+        label: "Voyage",
+        detail: "États-Unis, Allemagne, Malaisie, Japon,...",
+    },
+    {
+        icon: "🎵",
+        label: "Musique",
+        detail: "R&B, Composition musicale, Batterie, Chant (Ténor),...",
+    },
+    { icon: "🎮", label: "Jeux", detail: "Jeux de sport, MOBA, cartes,..." },
+];
+
+const experiences = [
+    {
+        period: "2023 - Présent",
+        title: "Développeur Full-Stack",
+        company: "Siko Mobility • 📍Station F",
+        type: "Alternance",
+    },
+    {
+        period: "Avr. 2023 - Sep. 2023",
+        title: "Développeur Back-End Laravel",
+        company: "Ôlyrix • 📍Nogent-sur-Marne",
+        type: "Stage",
+    },
+    {
+        period: "Avr. 2022 - Juin 2022",
+        title: "Développeur Back-End Laravel",
+        company: "DGAC - DNUM • 📍Athis-Mons",
+        type: "Stage",
+    },
+];
+
+const education = [
+    {
+        period: "Août 2025 - Décembre 2025",
+        title: "MSc Business Strategy, Leadership and Change (Exchange Program)",
+        school: "Heriot-Watt University (Putrajaya, Malaysia)",
+    },
+    {
+        period: "2023 - 2026",
+        title: "Filière Ingénieur en Informatique et Applications en apprentissage",
+        school: "ESIEE Paris (CTI)",
+    },
+    {
+        period: "2022 - 2023",
+        title: "Licence Informatique",
+        school: "Université Paris-Est Créteil",
+    },
+    {
+        period: "2020 - 2022",
+        title: "DUT Informatique",
+        school: "IUT Sénart-Fontainebleau",
+    },
+];
+---
+
+<section id="about" class="bento-section fade-in-delay-2">
+    <div class="bento-container">
+        <h2 class="section-title">À propos</h2>
+
+        <div class="bento-grid">
+            <!-- Tech Stack -->
+            <div class="bento-item bento-stack">
+                <div class="bento-card">
+                    <div class="card-content">
+                        <span class="card-tag">Compétences</span>
+                        <div class="stack-section">
+                            <h4 class="card-title">Technologies</h4>
+                            <div class="skills-grid">
+                                {
+                                    technologies.map((tech) => (
+                                        <span
+                                            class="skill-tag"
+                                            style={`--hover-color: ${tech.color}`}
+                                        >
+                                            {tech.name}
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <div class="stack-section">
+                            <h4 class="card-title">Outils</h4>
+                            <div class="skills-grid">
+                                {
+                                    tools.map((tool) => (
+                                        <span
+                                            class="skill-tag skill-tag--tool"
+                                            style={`--hover-color: ${tool.color}`}
+                                        >
+                                            {tool.name}
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                        <div class="stack-section">
+                            <h4 class="card-title">Langues</h4>
+                            <div class="skills-grid">
+                                {
+                                    languages.map((language) => (
+                                        <span class="skill-tag skill-tag--language">
+                                            {language.name} - {language.level}
+                                        </span>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experiences -->
+            <div class="bento-item bento-experiences">
+                <div class="bento-card">
+                    <div class="card-content">
+                        <span class="card-tag">Parcours</span>
+                        <h3 class="card-title">Expériences</h3>
+                        <div class="timeline">
+                            {
+                                experiences.map((exp) => (
+                                    <div class="timeline-item">
+                                        <div class="timeline-dot" />
+                                        <div class="timeline-content">
+                                            <span class="timeline-period">
+                                                {exp.period}
+                                            </span>
+                                            <div class="timeline-header">
+                                                <h4 class="timeline-title">
+                                                    {exp.title}
+                                                </h4>
+                                                <span class="timeline-badge">
+                                                    {exp.type}
+                                                </span>
+                                            </div>
+                                            <span class="timeline-company">
+                                                {exp.company}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="bento-item bento-education">
+                <div class="bento-card bento-card--dark">
+                    <div class="card-content">
+                        <span class="card-tag card-tag--light">Formation</span>
+                        <div class="education-list">
+                            {
+                                education.map((edu) => (
+                                    <div class="education-item">
+                                        <span class="education-period">
+                                            {edu.period}
+                                        </span>
+                                        <h4 class="education-title">
+                                            {edu.title}
+                                        </h4>
+                                        <span class="education-school">
+                                            {edu.school}
+                                        </span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passions -->
+            <div class="bento-item bento-passions">
+                <div class="bento-card">
+                    <div class="card-content">
+                        <span class="card-tag">Passions</span>
+                        <div class="passions-grid">
+                            {
+                                passions.map((passion) => (
+                                    <div class="passion-item">
+                                        <span class="passion-icon">
+                                            {passion.icon}
+                                        </span>
+                                        <span class="passion-label">
+                                            {passion.label}
+                                        </span>
+                                        <span class="passion-detail">
+                                            {passion.detail}
+                                        </span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="bento-item bento-contact" id="contact">
+                <BentoCard
+                    variant="contact"
+                    title="Travaillons ensemble"
+                    description="Prêt à démarrer votre prochain projet ?"
+                    ctaText="Me contacter"
+                    ctaLink="mailto:contact@example.com"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .bento-section {
+        padding: 3rem 1rem;
+    }
+
+    .bento-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--charcoal);
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .bento-item {
+        min-height: 0;
+    }
+
+    /* Card base styles */
+    .bento-card {
+        position: relative;
+        background: var(--cream);
+        border: 4px solid var(--charcoal);
+        border-radius: 16px;
+        padding: 1.5rem;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.4s var(--transition-smooth);
+        transform-origin: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bento-card:hover {
+        transform: translateY(-8px) translateX(-2px) rotate(-0.5deg);
+        box-shadow: 12px 12px 0 var(--copper);
+    }
+
+    .bento-card--dark {
+        background: var(--charcoal);
+    }
+
+    .card-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .card-tag {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        background: var(--sand);
+        border: 2px solid var(--charcoal);
+        border-radius: 24px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.75rem;
+        width: fit-content;
+    }
+
+    .card-tag--light {
+        background: var(--cream);
+    }
+
+    .card-title {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        color: var(--terracotta);
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+    }
+
+    /* Stack sections */
+    .stack-section {
+        margin-bottom: 0.75rem;
+    }
+
+    .stack-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .stack-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--charcoal);
+        opacity: 0.6;
+        margin: 0 0 0.4rem 0;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .skill-tag {
+        padding: 0.35rem 0.65rem;
+        background: var(--charcoal);
+        color: var(--cream);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+        background: var(--hover-color, var(--copper));
+        transform: translateY(-2px);
+    }
+
+    .skill-tag--tool {
+        background: var(--sand);
+        color: var(--charcoal);
+        border: 1px solid var(--charcoal);
+    }
+
+    .skill-tag--tool:hover {
+        background: var(--hover-color, var(--clay));
+        color: var(--cream);
+        border-color: var(--hover-color, var(--charcoal));
+    }
+
+    /* Timeline / Experiences */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: var(--sand);
+        border-radius: 1px;
+    }
+
+    .timeline-item {
+        position: relative;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -1.5rem;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        background: var(--copper);
+        border: 2px solid var(--charcoal);
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .timeline-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .timeline-period {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--copper);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .timeline-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .timeline-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.95rem;
+        color: var(--charcoal);
+        margin: 0;
+    }
+
+    .timeline-badge {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        padding: 0.2rem 0.4rem;
+        background: var(--sand);
+        color: var(--charcoal);
+        border: 1px solid var(--charcoal);
+        border-radius: 4px;
+        white-space: nowrap;
+    }
+
+    .timeline-company {
+        font-size: 0.8rem;
+        color: var(--charcoal);
+        opacity: 0.7;
+    }
+
+    /* Education */
+    .education-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .education-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+
+    .education-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .education-period {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--clay);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .education-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 0.9rem;
+        color: var(--cream);
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .education-school {
+        font-size: 0.75rem;
+        color: var(--cream);
+        opacity: 0.7;
+    }
+
+    /* Passions grid */
+    .passions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5rem;
+        flex: 1;
+    }
+
+    .passion-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 0.75rem 0.5rem;
+        background: var(--sand);
+        border: 2px solid var(--charcoal);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        min-height: 80px;
+    }
+
+    .passion-item:hover {
+        background: var(--clay);
+        transform: translateY(-3px);
+    }
+
+    .passion-icon {
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    .passion-item:hover .passion-icon {
+        transform: scale(1.1);
+    }
+
+    .passion-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--charcoal);
+        text-align: center;
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .passion-item:hover .passion-label {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .passion-detail {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0.4rem;
+        right: 0.4rem;
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: var(--charcoal);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .passion-item:hover .passion-detail {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+
+    /* ============ MOBILE (default) ============ */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 1rem;
+    }
+
+    /* ============ TABLET (768px+) ============ */
+    @media (min-width: 768px) {
+        .bento-section {
+            padding: 3rem 1.5rem;
+        }
+
+        .bento-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .bento-stack {
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .bento-experiences {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .bento-education {
+            grid-column: 1 / span 2;
+            grid-row: 2;
+        }
+        .bento-passions {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .bento-contact {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        .education-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* ============ DESKTOP (1025px+) ============ */
+    @media (min-width: 1025px) {
+        .bento-section {
+            padding: 4rem 2rem;
+        }
+
+        .bento-grid {
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: auto;
+            gap: 1.5rem;
+        }
+
+        .bento-stack {
+            grid-column: span 5;
+            grid-row: 1;
+        }
+        .bento-experiences {
+            grid-column: span 4;
+            grid-row: 1;
+        }
+        .bento-passions {
+            grid-column: span 3;
+            grid-row: 1;
+        }
+        .bento-education {
+            grid-column: span 6;
+            grid-row: 2;
+        }
+        .bento-contact {
+            grid-column: span 6;
+            grid-row: 2;
+        }
+
+        .bento-card {
+            padding: 1.5rem;
+            height: 100%;
+        }
+
+        .education-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+<script>
+    // Intersection Observer for scroll animations with staggered delay
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const item = entry.target as HTMLElement;
+                const delay = parseInt(item.dataset.delay || "0");
+                setTimeout(() => {
+                    item.classList.add("is-visible");
+                }, delay);
+                observer.unobserve(item);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll(".bento-item").forEach((item, index) => {
+        const el = item as HTMLElement;
+        el.classList.add("scroll-animate");
+        el.dataset.delay = String(index * 80);
+        observer.observe(el);
+    });
+</script>
+
+<style is:global>
+    .scroll-animate {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    .scroll-animate.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+            opacity 0.5s ease-out,
+            transform 0.5s ease-out;
+    }
+</style>

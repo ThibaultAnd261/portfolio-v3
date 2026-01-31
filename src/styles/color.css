@@ -1,123 +1,54 @@
 :root {
-    /* Beige colors - Tons chauds et naturels */
-    --beige-bg1-light: #FDFCF7;        /* Beige très clair pour fond principal */
-    --beige-bg1-dark: #1D1C17;         /* Beige très sombre */
-    --beige-bg2-light: #FAF9F2;        /* Beige clair pour sections alternées */
-    --beige-bg2-dark: #2A2925;         /* Beige sombre */
-    --beige-components-light: #F3EFE0;  /* Beige moyen pour composants */
-    --beige-components-dark: #45433C;   /* Beige gris sombre */
-    --beige-borders-light: #E7E2D3;     /* Beige pour bordures */
-    --beige-borders-dark: #7A766C;      /* Beige gris pour bordures sombres */
-    --beige-solid-light: #D5CEB7;       /* Beige solide */
-    --beige-solid-dark: #5A574E;        /* Beige très sombre */
-    --beige-text-light: #2A2925;        /* Beige sombre pour texte */
-    --beige-text-dark: #FAF9F2;         /* Beige clair pour texte sombre */
+    /* Claude-inspired palette */
+    --sand: #EDE7DC;
+    --clay: #D4A574;
+    --copper: #B8654D;
+    --terracotta: #9A4B3F;
+    --charcoal: #1A1614;
+    --cream: #F9F6F1;
 
-    /* Amber colors - Accents chauds */
-    --amber-bg1-light: #FFF8E8;         /* Ambre très clair */
-    --amber-bg1-dark: #472005;          /* Ambre très sombre */
-    --amber-bg2-light: #FFF1D4;         /* Ambre clair */
-    --amber-bg2-dark: #7A3810;          /* Ambre sombre */
-    --amber-components-light: #FFE5A8;   /* Ambre moyen */
-    --amber-components-dark: #944210;    /* Ambre foncé */
-    --amber-borders-light: #FCCF45;      /* Ambre vif */
-    --amber-borders-dark: #B65510;       /* Ambre bordure sombre */
-    --amber-solid-light: #F6A520;        /* Ambre solide */
-    --amber-solid-dark: #DA7A10;         /* Ambre solide sombre */
-    --amber-text-light: #944210;         /* Ambre texte */
-    --amber-text-dark: #FFF1D4;          /* Ambre texte clair */
+    /* Semantic colors */
+    --bg-primary: var(--cream);
+    --bg-secondary: var(--sand);
+    --text-primary: var(--charcoal);
+    --text-secondary: var(--terracotta);
+    --accent-primary: var(--copper);
+    --accent-secondary: var(--clay);
+    --border-color: var(--charcoal);
 
-    /* Black colors */
-    --black-pure: #000000;
-    --black-rich: #171614;               /* Noir légèrement chaud */
-    --black-soft: #1C1B18;               /* Noir beige */
-    --black-hover: #2C2B27;              /* Noir beige hover */
-    --black-muted: #353431;              /* Noir beige atténué */
+    /* Transitions */
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Classes utilitaires pour les fonds */
-.bg-beige1-light {
-    background-color: var(--beige-bg1-light);
+/* Background utilities */
+.bg-sand { background-color: var(--sand); }
+.bg-clay { background-color: var(--clay); }
+.bg-copper { background-color: var(--copper); }
+.bg-terracotta { background-color: var(--terracotta); }
+.bg-charcoal { background-color: var(--charcoal); }
+.bg-cream { background-color: var(--cream); }
+
+/* Text utilities */
+.text-sand { color: var(--sand); }
+.text-clay { color: var(--clay); }
+.text-copper { color: var(--copper); }
+.text-terracotta { color: var(--terracotta); }
+.text-charcoal { color: var(--charcoal); }
+.text-cream { color: var(--cream); }
+
+/* Border utilities */
+.border-charcoal { border-color: var(--charcoal); }
+.border-copper { border-color: var(--copper); }
+
+/* Gradient utilities */
+.bg-gradient-main {
+    background: linear-gradient(135deg, var(--sand) 0%, var(--cream) 100%);
 }
 
-.bg-beige1-dark {
-    background-color: var(--beige-bg1-dark);
+.bg-gradient-warm {
+    background: linear-gradient(135deg, var(--clay) 0%, var(--copper) 100%);
 }
 
-.bg-beige2-light {
-    background-color: var(--beige-bg2-light);
-}
-
-.bg-beige2-dark {
-    background-color: var(--beige-bg2-dark);
-}
-
-.bg-amber1-light {
-    background-color: var(--amber-bg1-light);
-}
-
-.bg-amber1-dark {
-    background-color: var(--amber-bg1-dark);
-}
-
-.bg-amber2-light {
-    background-color: var(--amber-bg2-light);
-}
-
-.bg-amber2-dark {
-    background-color: var(--amber-bg2-dark);
-}
-
-/* Classes utilitaires pour le texte */
-.text-beige-light {
-    color: var(--beige-text-light);
-}
-
-.text-beige-dark {
-    color: var(--beige-text-dark);
-}
-
-.text-amber-light {
-    color: var(--amber-text-light);
-}
-
-.text-amber-dark {
-    color: var(--amber-text-dark);
-}
-
-/* Classes pour les noirs */
-.bg-black {
-    background-color: var(--black-rich);
-}
-
-.bg-black-soft {
-    background-color: var(--black-soft);
-}
-
-.bg-black-hover {
-    background-color: var(--black-hover);
-}
-
-.text-black {
-    color: var(--black-rich);
-}
-
-/* Gradients utilitaires */
-.bg-gradient-warm-light {
-    background: linear-gradient(to right, var(--beige-bg2-light) 40%, var(--amber-bg1-light) 100%);
-}
-
-.bg-gradient-warm-dark {
-    background: linear-gradient(to right, var(--amber-bg1-dark), var(--beige-bg1-dark));
-}
-
-/* Style bouton CV */
-.button-cv {
-    background-color: var(--black-rich);
-    color: var(--beige-bg1-light);
-    transition: background-color 0.3s ease;
-}
-
-.button-cv:hover {
-    background-color: var(--black-hover);
+.bg-gradient-project {
+    background: linear-gradient(135deg, var(--clay) 0%, var(--terracotta) 100%);
 }

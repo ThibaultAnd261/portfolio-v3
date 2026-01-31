@@ -14,9 +14,15 @@ importers:
       '@fontsource/dm-sans':
         specifier: ^5.1.0
         version: 5.1.1
+      '@fontsource/dm-serif-display':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@fontsource/fraunces':
         specifier: ^5.1.0
         version: 5.1.1
+      '@fontsource/karla':
+        specifier: ^5.2.8
+        version: 5.2.8
       astro:
         specifier: ^4.4.15
         version: 4.16.18(@types/node@22.13.4)(rollup@4.34.8)(typescript@5.7.3)
@@ -325,8 +331,14 @@ packages:
   '@fontsource/dm-sans@5.1.1':
     resolution: {integrity: sha512-xApcrecLZkQMM6bl7U+Eokg8Y4LeYMiR+cQUTUNx4Adun5ZpiIlPB9+JEXg/k1gFea/72nmn30AekCBA+HhUCA==}
 
+  '@fontsource/dm-serif-display@5.2.8':
+    resolution: {integrity: sha512-GYSDSlGU6vyhv9a5MwaiVNf9HCuSVpK8hEFRyG4NNDHCDeHiX7YHDAcWsaoLKKcfXLgWG9YkBkk9T3SxM4rAjQ==}
+
   '@fontsource/fraunces@5.1.1':
     resolution: {integrity: sha512-cnH6XaX5X3Y0xMCxSU1U8nays9X/9Sm34l82iVe3MJkreoKCMDGH3EjepcjqaPlCk0rJurFa2wGkWFdO4Gs//A==}
+
+  '@fontsource/karla@5.2.8':
+    resolution: {integrity: sha512-uZMA4ugNcHFYMpjr/9FIHQC3ldtILlqPdK3f4P9XInDgRL0NxdIyRwH9MuGZUT7sdup0kshk9zsGXitq1xpFAw==}
 
   '@iconify/tools@4.1.1':
     resolution: {integrity: sha512-Hybu/HGhv6T8nLQhiG9rKx+ekF7NNpPOEQAy7JRSKht3s3dcFSsPccYzk24Znc9MTxrR6Gak3cg6CPP5dyvS2Q==}
@@ -2503,7 +2515,11 @@ snapshots:
 
   '@fontsource/dm-sans@5.1.1': {}
 
+  '@fontsource/dm-serif-display@5.2.8': {}
+
   '@fontsource/fraunces@5.1.1': {}
+
+  '@fontsource/karla@5.2.8': {}
 
   '@iconify/tools@4.1.1':
     dependencies:

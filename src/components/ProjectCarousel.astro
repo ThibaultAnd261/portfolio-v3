@@ -1,0 +1,431 @@
+---
+import "../styles/color.css";
+import profileImage from "../assets/img/me.png";
+
+interface Project {
+    title: string;
+    description: string;
+    image?: string;
+    gradient?: string;
+    link?: string;
+}
+
+const projects: Project[] = [
+    {
+        title: "Plateforme web avec reconnaissance faciale",
+        description: "Visualisation de données en temps réel",
+        image: profileImage.src,
+        link: "#"
+    },
+    {
+        title: "Portfolio 3D",
+        description: "Expérience immersive Three.js",
+        gradient: "linear-gradient(180deg, #D4A574 0%, #B8654D 100%)",
+        link: "#"
+    },
+    {
+        title: "E-commerce",
+        description: "Plateforme complète de vente",
+        gradient: "linear-gradient(180deg, #9A4B3F 0%, #1A1614 100%)",
+        link: "#"
+    },
+    {
+        title: "App Fitness",
+        description: "Suivi et programmes personnalisés",
+        gradient: "linear-gradient(180deg, #1A1614 0%, #B8654D 100%)",
+        link: "#"
+    },
+    {
+        title: "SaaS Platform",
+        description: "Solution B2B collaborative",
+        gradient: "linear-gradient(180deg, #B8654D 0%, #D4A574 100%)",
+        link: "#"
+    }
+];
+---
+
+<section class="carousel-section">
+    <div class="carousel-header">
+        <h2 class="carousel-title">Projets</h2>
+        <div class="scroll-indicator">
+            <span>Scroll pour explorer</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            {projects.map((project, index) => (
+                <a href={project.link || "#"} class="carousel-panel" data-index={index}>
+                    <div class="panel-background" style={project.image ? `background-image: url(${project.image}); background-size: cover; background-position: center;` : `background: ${project.gradient};`}>
+                    </div>
+                    <span class="panel-number">0{index + 1}</span>
+                    <div class="panel-overlay"></div>
+                    <div class="panel-content">
+                        <h3 class="panel-title">{project.title}</h3>
+                        <p class="panel-description">{project.description}</p>
+                        <div class="panel-cta">
+                            <span>Voir le projet</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .carousel-section {
+        padding: 3rem 0;
+        overflow: hidden;
+    }
+
+    .carousel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto 2rem;
+        padding: 0 1.5rem;
+    }
+
+    .carousel-title {
+        font-family: 'DM Serif Display', serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--charcoal);
+    }
+
+    .scroll-indicator {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--charcoal);
+        opacity: 0.7;
+    }
+
+    .scroll-indicator svg {
+        animation: bounce-right 1.5s infinite;
+    }
+
+    @keyframes bounce-right {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(5px); }
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        cursor: grab;
+    }
+
+    .carousel-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .carousel-container:active {
+        cursor: grabbing;
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 0;
+        padding: 0 1.5rem;
+        min-width: min-content;
+    }
+
+    .carousel-panel {
+        position: relative;
+        flex-shrink: 0;
+        width: clamp(200px, 25vw, 320px);
+        height: clamp(400px, 60vh, 550px);
+        border: 4px solid var(--charcoal);
+        border-radius: 20px;
+        overflow: hidden;
+        text-decoration: none;
+        color: var(--cream);
+        transition: width 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        margin-right: -4px;
+    }
+
+    .carousel-panel:first-child {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .carousel-panel:last-child {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-right: 0;
+    }
+
+    .carousel-panel:hover {
+        width: clamp(280px, 35vw, 450px);
+        z-index: 10;
+    }
+
+    .panel-background {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .carousel-panel:hover .panel-background {
+        transform: scale(1.08);
+    }
+
+    /* Number - always visible, rotated 90° in top-left */
+    .panel-number {
+        font-family: 'DM Serif Display', serif;
+        font-size: 2.2rem;
+        font-weight: 300;
+        line-height: 1;
+        color: var(--cream);
+        opacity: 0.7;
+        position: absolute;
+        top: 1.5rem;
+        left: 2.5rem;
+        transform: rotate(-90deg) translateX(-100%);
+        transform-origin: left bottom;
+        letter-spacing: 2px;
+        z-index: 5;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .carousel-panel:hover .panel-number {
+        opacity: 1;
+    }
+
+    /* Overlay - hidden by default, appears on hover */
+    .panel-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(26, 22, 20, 0.95) 0%,
+            rgba(26, 22, 20, 0.7) 30%,
+            rgba(26, 22, 20, 0.2) 60%,
+            transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        z-index: 2;
+    }
+
+    .carousel-panel:hover .panel-overlay {
+        opacity: 1;
+    }
+
+    /* Content - hidden by default */
+    .panel-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s,
+                    opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s;
+        z-index: 3;
+    }
+
+    .carousel-panel:hover .panel-content {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .panel-title {
+        font-family: 'DM Serif Display', serif;
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+
+    .panel-description {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        line-height: 1.4;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s,
+                    opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.15s;
+    }
+
+    .carousel-panel:hover .panel-description {
+        max-height: 100px;
+        opacity: 1;
+    }
+
+    .panel-cta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s,
+                    opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s;
+    }
+
+    .carousel-panel:hover .panel-cta {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .panel-cta svg {
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-panel:hover .panel-cta svg {
+        transform: translate(3px, -3px);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+        .carousel-section {
+            padding: 2rem 0;
+        }
+
+        .carousel-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-panel {
+            width: 180px;
+            height: 350px;
+        }
+
+        .carousel-panel:hover {
+            width: 220px;
+        }
+
+        .panel-content {
+            padding: 1.5rem 1rem;
+        }
+
+        .panel-number {
+            font-size: 1.5rem;
+            top: 1rem;
+            left: 2rem;
+        }
+
+        .panel-description {
+            display: none;
+        }
+
+        .carousel-panel:hover .panel-description {
+            display: block;
+        }
+    }
+
+    /* Large screens */
+    @media (min-width: 1400px) {
+        .carousel-track {
+            padding: 0 calc((100vw - 1400px) / 2 + 1.5rem);
+        }
+    }
+
+    /* Panel entrance animation */
+    .panel-animate {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .panel-animate.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .panel-animate.is-visible:hover {
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    // Staggered fade-in animation for panels
+    const panels = document.querySelectorAll('.carousel-panel');
+
+    const panelObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const panel = entry.target as HTMLElement;
+                const index = parseInt(panel.dataset.index || '0');
+                setTimeout(() => {
+                    panel.classList.add('is-visible');
+                }, index * 100); // Staggered delay
+                panelObserver.unobserve(panel);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    panels.forEach(panel => {
+        panel.classList.add('panel-animate');
+        panelObserver.observe(panel);
+    });
+
+    // Drag to scroll functionality
+    const container = document.querySelector('.carousel-container') as HTMLElement;
+
+    if (container) {
+        let isDown = false;
+        let startX: number;
+        let scrollLeft: number;
+
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.style.cursor = 'grabbing';
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Scroll on wheel - only use horizontal swipe, let vertical scroll pass through
+        container.addEventListener('wheel', (e) => {
+            // Only capture horizontal trackpad gestures
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && e.deltaX !== 0) {
+                e.preventDefault();
+                container.scrollLeft += e.deltaX;
+            }
+            // Let vertical scroll pass through to scroll the page
+        }, { passive: false });
+    }
+</script>
