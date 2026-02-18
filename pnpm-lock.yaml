@@ -23,6 +23,9 @@ importers:
       '@fontsource/karla':
         specifier: ^5.2.8
         version: 5.2.8
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.68
+        version: 1.2.68
       astro:
         specifier: ^4.4.15
         version: 4.16.18(@types/node@22.13.4)(rollup@4.34.8)(typescript@5.7.3)
@@ -339,6 +342,9 @@ packages:
 
   '@fontsource/karla@5.2.8':
     resolution: {integrity: sha512-uZMA4ugNcHFYMpjr/9FIHQC3ldtILlqPdK3f4P9XInDgRL0NxdIyRwH9MuGZUT7sdup0kshk9zsGXitq1xpFAw==}
+
+  '@iconify-json/simple-icons@1.2.68':
+    resolution: {integrity: sha512-bQPl1zuZlX6AnofreA1v7J+hoPncrFMppqGboe/SH54jZO37meiBUGBqNOxEpc0HKfZGxJaVVJwZd4gdMYu3hw==}
 
   '@iconify/tools@4.1.1':
     resolution: {integrity: sha512-Hybu/HGhv6T8nLQhiG9rKx+ekF7NNpPOEQAy7JRSKht3s3dcFSsPccYzk24Znc9MTxrR6Gak3cg6CPP5dyvS2Q==}
@@ -2520,6 +2526,10 @@ snapshots:
   '@fontsource/fraunces@5.1.1': {}
 
   '@fontsource/karla@5.2.8': {}
+
+  '@iconify-json/simple-icons@1.2.68':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/tools@4.1.1':
     dependencies:

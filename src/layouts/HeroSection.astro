@@ -1,16 +1,54 @@
 ---
 import "../styles/color.css";
 import profileImage from "../assets/img/me.png";
+import { Icon } from "astro-icon/components";
+
+// Statut disponible : "open" | "searching" | "unavailable" | null (pour masquer)
+const status: "open" | "searching" | "unavailable" | null = "searching";
+
+const statusConfig = {
+    open: { label: "#OPENTOWORK", color: "#16a34a", colorEnd: "#22c55e" },
+    searching: { label: "#SEARCHING", color: "#2563eb", colorEnd: "#3b82f6" },
+    unavailable: { label: "#NOTAVAILABLE", color: "#dc2626", colorEnd: "#ef4444" },
+};
 ---
 
 <section class="hero fade-in-delay-1">
     <div class="hero-image">
+        {status && (
+            <span class={`status-badge status-${status}`}>
+                {statusConfig[status].label}
+            </span>
+        )}
         <img src={profileImage.src} alt="Photo de profil" />
     </div>
     <div class="hero-content">
         <h1>Thibault Andriamasinoro</h1>
         <div class="subtitle">Ingénieur logiciel - Spécialisé en développement front-end</div>
-        <p>Je transforme des problématiques complexes en interfaces fluides et intuitives. Mon objectif est d'allier la rigueur technique à une sensibilité créative pour coder des solutions qui sont aussi performantes qu'agréables à utiliser.</p>
+        <p class="">Je transforme des problématiques complexes en interfaces fluides et intuitives. Mon objectif est de répondre à des besoins concrets en alliant la rigueur technique à une sensibilité créative. Je crée des solutions qui sont aussi performantes qu'agréables à utiliser.</p>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/thibault-andriamasinoro/" class="social-link social-linkedin" target="_blank" rel="noopener noreferrer">
+                <Icon name="simple-icons:linkedin" />
+                <span>Thibault ANDRIAMASINORO</span>
+            </a>
+            <a href="https://github.com/ThibaultAnd261" class="social-link social-github" target="_blank" rel="noopener noreferrer">
+                <Icon name="simple-icons:github" />
+                <span>ThibaultAnd261</span>
+            </a>
+            <a href="mailto:thibaultandpro@gmail.com" class="social-link social-email">
+                <Icon name="simple-icons:gmail" />
+                <span>thibaultandpro@gmail.com</span>
+            </a>
+            <a href="tel:+33767686487" class="social-link social-phone">
+                <Icon name="simple-icons:whatsapp" />
+                <span>Téléphonez-moi</span>
+            </a>
+            <a href="/cv.pdf" target="_blank" class="social-link social-cv">
+                <Icon name="simple-icons:readthedocs" />
+                <span>CV</span>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -28,6 +66,37 @@ import profileImage from "../assets/img/me.png";
 
     .hero-image {
         flex-shrink: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .status-badge {
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        font-family: 'Karla', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: white;
+        z-index: 2;
+    }
+
+    .status-open {
+        background-color: #16a34a;
+    }
+
+    .status-searching {
+        background-color: #2563eb;
+    }
+
+    .status-unavailable {
+        background-color: #dc2626;
     }
 
     .hero-image img {
@@ -49,6 +118,7 @@ import profileImage from "../assets/img/me.png";
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .hero-content h1 {
@@ -73,6 +143,65 @@ import profileImage from "../assets/img/me.png";
         opacity: 0.85;
         color: var(--charcoal);
         line-height: 1.6;
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 1.25rem;
+    }
+
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.75rem;
+        border-radius: 6px;
+        font-family: 'Karla', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: white;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+    }
+
+    .social-link svg,
+    .social-link [data-icon] {
+        flex-shrink: 0;
+        display: block;
+        width: 16px;
+        height: 16px;
+    }
+
+    .social-linkedin {
+        background-color: #0077B5;
+    }
+
+    .social-github {
+        background-color: #181717;
+    }
+
+    .social-twitter {
+        background-color: #000000;
+    }
+
+    .social-email {
+        background-color: #EA4335;
+    }
+
+    .social-phone {
+        background-color: #25D366;
+    }
+
+    .social-cv {
+        background-color: var(--copper);
     }
 
     /* Tablet */
@@ -111,8 +240,12 @@ import profileImage from "../assets/img/me.png";
             align-items: flex-start;
         }
 
+        .social-links {
+            justify-content: flex-start;
+        }
+
         .hero-content p {
-            max-width: 600px;
+            max-width: 100%;
         }
     }
 </style>

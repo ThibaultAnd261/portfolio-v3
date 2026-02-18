@@ -40,12 +40,12 @@ const passions = [
     {
         icon: "✈️",
         label: "Voyage",
-        detail: "États-Unis, Allemagne, Malaisie, Japon,...",
+        detail: "Canada, Allemagne, Malaisie, Japon,...",
     },
     {
         icon: "🎵",
         label: "Musique",
-        detail: "R&B, Composition musicale, Batterie, Chant (Ténor),...",
+        detail: "Composition musicale, Batterie, Chant (Ténor),...",
     },
     { icon: "🎮", label: "Jeux", detail: "Jeux de sport, MOBA, cartes,..." },
 ];
@@ -54,20 +54,23 @@ const experiences = [
     {
         period: "2023 - Présent",
         title: "Développeur Full-Stack",
-        company: "Siko Mobility • 📍Station F",
+        company: "💼 Siko Mobility • 📍 Station F",
         type: "Alternance",
+        stack: ["React", "TypeScript", "Symfony", "MySQL", "Tailwind CSS", "Figma", "Slack", "Notion", "GitHub", "Postman", "Docker"],
     },
     {
         period: "Avr. 2023 - Sep. 2023",
         title: "Développeur Back-End Laravel",
-        company: "Ôlyrix • 📍Nogent-sur-Marne",
+        company: "💼 Ôlyrix • 📍 Nogent-sur-Marne",
         type: "Stage",
+        stack: ["Laravel", "MySQL", "API REST", "GitHub", "Postman", "Microsoft Teams"],
     },
     {
         period: "Avr. 2022 - Juin 2022",
         title: "Développeur Back-End Laravel",
-        company: "DGAC - DNUM • 📍Athis-Mons",
+        company: "💼 DGAC - DNUM • 📍 Athis-Mons",
         type: "Stage",
+        stack: ["Laravel", "MySQL", "GitHub", "Postman", "Design System (GOV)", "Microsoft Teams"],
     },
 ];
 
@@ -75,22 +78,22 @@ const education = [
     {
         period: "Août 2025 - Décembre 2025",
         title: "MSc Business Strategy, Leadership and Change (Exchange Program)",
-        school: "Heriot-Watt University (Putrajaya, Malaysia)",
+        school: "📚 Heriot-Watt University • 📍 Putrajaya, Malaysia",
     },
     {
         period: "2023 - 2026",
-        title: "Filière Ingénieur en Informatique et Applications en apprentissage",
-        school: "ESIEE Paris (CTI)",
+        title: "Filière Ingénieur en Informatique et Applications (apprentissage)",
+        school: "📚 ESIEE Paris (CTI) • 📍 Noisy-le-Grand, France",
     },
     {
         period: "2022 - 2023",
-        title: "Licence Informatique",
-        school: "Université Paris-Est Créteil",
+        title: "Licence Informatique - 3ème année",
+        school: "📚 Université Paris-Est Créteil • 📍 Créteil, France",
     },
     {
         period: "2020 - 2022",
         title: "DUT Informatique",
-        school: "IUT Sénart-Fontainebleau",
+        school: "📚 IUT Sénart-Fontainebleau • 📍 Fontainebleau, France",
     },
 ];
 ---
@@ -177,6 +180,15 @@ const education = [
                                             <span class="timeline-company">
                                                 {exp.company}
                                             </span>
+                                            {exp.stack?.length ? (
+                                                <div class="timeline-stack">
+                                                    {exp.stack.map((tech) => (
+                                                        <span class="timeline-stack-tag">
+                                                            {tech}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : null}
                                         </div>
                                     </div>
                                 ))
@@ -216,7 +228,7 @@ const education = [
             <div class="bento-item bento-passions">
                 <div class="bento-card">
                     <div class="card-content">
-                        <span class="card-tag">Passions</span>
+                        <span class="card-tag">Passion</span>
                         <div class="passions-grid">
                             {
                                 passions.map((passion) => (
@@ -335,7 +347,7 @@ const education = [
 
     /* Stack sections */
     .stack-section {
-        margin-bottom: 0.75rem;
+        margin-bottom: 1.75rem;
     }
 
     .stack-section:last-child {
@@ -429,7 +441,7 @@ const education = [
     }
 
     .timeline-period {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 600;
         color: var(--copper);
         text-transform: uppercase;
@@ -445,7 +457,7 @@ const education = [
 
     .timeline-title {
         font-family: "DM Serif Display", serif;
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: var(--charcoal);
         margin: 0;
     }
@@ -467,6 +479,27 @@ const education = [
         font-size: 0.8rem;
         color: var(--charcoal);
         opacity: 0.7;
+    }
+
+    .timeline-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.35rem;
+    }
+
+    .timeline-stack-tag {
+        padding: 0.2rem 0.45rem;
+        border-radius: 4px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        background: var(--sand);
+        color: var(--charcoal);
+        border: 1px solid var(--charcoal);
+        line-height: 1;
+        white-space: nowrap;
     }
 
     /* Education */
@@ -491,7 +524,7 @@ const education = [
     }
 
     .education-period {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         font-weight: 600;
         color: var(--clay);
         text-transform: uppercase;
@@ -500,7 +533,7 @@ const education = [
 
     .education-title {
         font-family: "DM Serif Display", serif;
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: var(--cream);
         margin: 0;
         line-height: 1.3;
