@@ -1,0 +1,42 @@
+<svg width="450" height="550" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1A1614"/>
+
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#EDE7DC" stroke-width="0.3" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Top accent -->
+  <rect x="0" y="0" width="450" height="3" fill="#D4A574"/>
+
+  <!-- Central card -->
+  <rect x="50" y="100" width="350" height="350" rx="16" fill="#252220" stroke="#D4A574" stroke-width="1" opacity="0.8"/>
+
+  <!-- Checkbox icon -->
+  <rect x="185" y="140" width="80" height="65" rx="8" fill="none" stroke="#B8654D" stroke-width="2"/>
+  <path d="M205,177 L218,192 L250,158" fill="none" stroke="#D4A574" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Title -->
+  <text x="225" y="240" text-anchor="middle" fill="#EDE7DC" font-family="sans-serif" font-size="28" font-weight="bold">Vote</text>
+  <text x="225" y="262" text-anchor="middle" fill="#EDE7DC" font-family="sans-serif" font-size="10" opacity="0.45">Plateforme de vote en ligne</text>
+
+  <!-- Progress bar -->
+  <rect x="100" y="290" width="250" height="5" rx="3" fill="#333"/>
+  <rect x="100" y="290" width="75" height="5" rx="3" fill="#D4A574"/>
+  <text x="225" y="314" text-anchor="middle" fill="#D4A574" font-family="sans-serif" font-size="8" font-weight="bold" letter-spacing="2">EN COURS DE CONSTRUCTION</text>
+
+  <!-- Feature list -->
+  <circle cx="120" cy="350" r="4" fill="#B8654D" opacity="0.5"/>
+  <rect x="135" y="346" width="80" height="8" rx="2" fill="#EDE7DC" opacity="0.15"/>
+  <circle cx="120" cy="372" r="4" fill="#D4A574" opacity="0.5"/>
+  <rect x="135" y="368" width="100" height="8" rx="2" fill="#EDE7DC" opacity="0.15"/>
+  <circle cx="120" cy="394" r="4" fill="#EDE7DC" opacity="0.15"/>
+  <rect x="135" y="390" width="70" height="8" rx="2" fill="#EDE7DC" opacity="0.08"/>
+
+  <!-- Decorative circles -->
+  <circle cx="60" cy="80" r="40" fill="none" stroke="#B8654D" stroke-width="0.8" opacity="0.08"/>
+  <circle cx="390" cy="480" r="50" fill="none" stroke="#D4A574" stroke-width="0.8" opacity="0.08"/>
+</svg>

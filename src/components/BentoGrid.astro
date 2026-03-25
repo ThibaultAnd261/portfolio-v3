@@ -266,12 +266,13 @@ const education = [
 
 <style>
     .bento-section {
-        padding: 3rem 1rem;
+        padding: 3rem 0;
     }
 
     .bento-container {
         max-width: 1400px;
         margin: 0 auto;
+        padding: 0 1.5rem;
     }
 
     .section-title {
@@ -279,7 +280,6 @@ const education = [
         font-size: clamp(2rem, 4vw, 3rem);
         color: var(--charcoal);
         margin-bottom: 2rem;
-        padding: 0 0.5rem;
     }
 
     .bento-item {
@@ -630,9 +630,6 @@ const education = [
 
     /* ============ TABLET (768px+) ============ */
     @media (min-width: 768px) {
-        .bento-section {
-            padding: 3rem 1.5rem;
-        }
 
         .bento-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -667,9 +664,6 @@ const education = [
 
     /* ============ DESKTOP (1025px+) ============ */
     @media (min-width: 1025px) {
-        .bento-section {
-            padding: 4rem 2rem;
-        }
 
         .bento-grid {
             grid-template-columns: repeat(12, 1fr);

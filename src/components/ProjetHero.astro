@@ -1,0 +1,103 @@
+---
+interface Props {
+  title: string;
+  image: string;
+  date: Date;
+  statut: string;
+}
+
+const { title, image, date, statut } = Astro.props;
+
+const dateFormatee = new Intl.DateTimeFormat('fr-FR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(date);
+
+const statutSlug = statut.toLowerCase().replace(' ', '-');
+---
+
+<header class="projet-hero fade-in">
+  <div class="projet-hero__meta">
+    <time>{dateFormatee}</time>
+    <span class={`statut statut--${statutSlug}`}>{statut}</span>
+  </div>
+  <h1 class="projet-hero__titre">{title}</h1>
+  <div class="projet-hero__image-wrapper">
+    <img src={image} alt={`Aperçu du projet ${title}`} class="projet-hero__image" />
+  </div>
+</header>
+
+<style>
+  .projet-hero {
+    margin-bottom: 3rem;
+  }
+
+  .projet-hero__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    opacity: 0.6;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+  }
+
+  .projet-hero__titre {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 2rem;
+    color: var(--charcoal);
+  }
+
+  .projet-hero__image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 4px solid var(--charcoal);
+    background: var(--sand);
+  }
+
+  .projet-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--transition-smooth);
+  }
+
+  .projet-hero__image-wrapper:hover .projet-hero__image {
+    transform: scale(1.03);
+  }
+
+  .statut {
+    padding: 0.2em 0.6em;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+  }
+
+  .statut--terminé {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .statut--en-cours {
+    background: var(--sand);
+    color: var(--terracotta);
+  }
+
+  .statut--concept {
+    background: #e0e7ff;
+    color: #3730a3;
+  }
+</style>

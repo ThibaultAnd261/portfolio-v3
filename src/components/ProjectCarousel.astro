@@ -1,47 +1,18 @@
 ---
 import "../styles/color.css";
-import profileImage from "../assets/img/me.png";
+import { getCollection } from 'astro:content';
 
-interface Project {
-    title: string;
-    description: string;
-    image?: string;
-    gradient?: string;
-    link?: string;
-}
-
-const projects: Project[] = [
-    {
-        title: "Plateforme web avec reconnaissance faciale",
-        description: "Visualisation de données en temps réel",
-        image: profileImage.src,
-        link: "#"
-    },
-    {
-        title: "Portfolio 3D",
-        description: "Expérience immersive Three.js",
-        gradient: "linear-gradient(180deg, #D4A574 0%, #B8654D 100%)",
-        link: "#"
-    },
-    {
-        title: "E-commerce",
-        description: "Plateforme complète de vente",
-        gradient: "linear-gradient(180deg, #9A4B3F 0%, #1A1614 100%)",
-        link: "#"
-    },
-    {
-        title: "App Fitness",
-        description: "Suivi et programmes personnalisés",
-        gradient: "linear-gradient(180deg, #1A1614 0%, #B8654D 100%)",
-        link: "#"
-    },
-    {
-        title: "SaaS Platform",
-        description: "Solution B2B collaborative",
-        gradient: "linear-gradient(180deg, #B8654D 0%, #D4A574 100%)",
-        link: "#"
-    }
-];
+const projets = await getCollection('projets');
+const projects = projets
+    .filter(projet => projet.data.statut !== 'Hide')
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .map((projet) => ({
+        title: projet.data.title,   
+        description: projet.data.description,
+        cover: projet.data.cover || projet.data.image,
+        gradient: projet.data.gradient,
+        slug: projet.slug,
+    }));
 ---
 
 <section class="carousel-section" id="projects">
@@ -58,8 +29,8 @@ const projects: Project[] = [
     <div class="carousel-container">
         <div class="carousel-track">
             {projects.map((project, index) => (
-                <a href={project.link || "#"} class="carousel-panel" data-index={index}>
-                    <div class="panel-background" style={project.image ? `background-image: url(${project.image}); background-size: cover; background-position: center;` : `background: ${project.gradient};`}>
+                <a href={`/projet/${project.slug}`} class="carousel-panel" data-index={index}>
+                    <div class="panel-background" style={`background-image: url(${project.cover}); background-size: cover; background-position: center;`}>
                     </div>
                     <span class="panel-number">0{index + 1}</span>
                     <div class="panel-overlay"></div>

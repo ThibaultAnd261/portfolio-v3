@@ -1,0 +1,98 @@
+<svg width="450" height="550" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#F5F0EB"/>
+
+  <!-- Navbar -->
+  <rect x="0" y="0" width="450" height="44" fill="#FFFFFF"/>
+  <rect x="0" y="44" width="450" height="1" fill="#E0DCD7"/>
+  <text x="30" y="28" fill="#1A1614" font-family="sans-serif" font-size="14" font-weight="bold" letter-spacing="2">SNIPES</text>
+  <circle cx="106" cy="22" r="3" fill="#B8654D"/>
+  <rect x="200" y="18" width="40" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <rect x="250" y="18" width="55" height="8" rx="2" fill="#B8654D" opacity="0.7"/>
+  <rect x="315" y="18" width="50" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <circle cx="415" cy="22" r="14" fill="#E0DCD7"/>
+
+  <!-- Title -->
+  <text x="225" y="90" text-anchor="middle" fill="#1A1614" font-family="sans-serif" font-size="14" font-weight="bold">Gestion des demandes</text>
+
+  <!-- Tabs -->
+  <rect x="130" y="108" width="80" height="28" rx="6" fill="#E0DCD7"/>
+  <text x="147" y="126" fill="#1A1614" font-family="sans-serif" font-size="9">Vendeur</text>
+  <rect x="216" y="108" width="80" height="28" rx="6" fill="#B8654D"/>
+  <text x="237" y="126" fill="#EDE7DC" font-family="sans-serif" font-size="9" font-weight="bold">Runner</text>
+
+  <!-- Section title -->
+  <text x="30" y="172" fill="#1A1614" font-family="sans-serif" font-size="12" font-weight="bold">Liste des demandes</text>
+
+  <!-- Table header -->
+  <rect x="15" y="185" width="420" height="30" fill="#E8E3DE"/>
+  <text x="30" y="205" fill="#1A1614" font-family="sans-serif" font-size="8" font-weight="bold">Vendeur</text>
+  <text x="95" y="205" fill="#1A1614" font-family="sans-serif" font-size="8" font-weight="bold">Modèle</text>
+  <text x="165" y="205" fill="#1A1614" font-family="sans-serif" font-size="8" font-weight="bold">Taille</text>
+  <text x="215" y="205" fill="#1A1614" font-family="sans-serif" font-size="8" font-weight="bold">Création</text>
+  <text x="295" y="205" fill="#1A1614" font-family="sans-serif" font-size="8" font-weight="bold">Statut</text>
+  <text x="370" y="205" fill="#1A1614" font-family="sans-serif" font-size="8" font-weight="bold">Actions</text>
+
+  <!-- Row 1 -->
+  <rect x="15" y="215" width="420" height="45" fill="#FFFFFF"/>
+  <rect x="15" y="260" width="420" height="1" fill="#E0DCD7"/>
+  <rect x="30" y="232" width="45" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <rect x="95" y="232" width="50" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="165" y="232" width="20" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="215" y="228" width="55" height="8" rx="2" fill="#1A1614" opacity="0.2"/>
+  <rect x="215" y="240" width="45" height="7" rx="2" fill="#1A1614" opacity="0.12"/>
+  <rect x="295" y="228" width="50" height="18" rx="3" fill="#D4A574" opacity="0.2"/>
+  <text x="303" y="241" fill="#9A4B3F" font-family="sans-serif" font-size="7">En attente</text>
+  <rect x="370" y="228" width="50" height="20" rx="4" fill="#B8654D"/>
+  <text x="377" y="242" fill="#EDE7DC" font-family="sans-serif" font-size="7" font-weight="bold">Suppr.</text>
+
+  <!-- Row 2 -->
+  <rect x="15" y="261" width="420" height="45" fill="#FAFAF8"/>
+  <rect x="15" y="306" width="420" height="1" fill="#E0DCD7"/>
+  <rect x="30" y="278" width="50" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <rect x="95" y="278" width="55" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="165" y="278" width="20" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="215" y="274" width="55" height="8" rx="2" fill="#1A1614" opacity="0.2"/>
+  <rect x="215" y="286" width="45" height="7" rx="2" fill="#1A1614" opacity="0.12"/>
+  <rect x="295" y="274" width="40" height="18" rx="3" fill="#4CAF50" opacity="0.15"/>
+  <text x="303" y="287" fill="#2E7D32" font-family="sans-serif" font-size="7">Livré</text>
+  <rect x="370" y="274" width="50" height="20" rx="4" fill="#B8654D"/>
+  <text x="377" y="288" fill="#EDE7DC" font-family="sans-serif" font-size="7" font-weight="bold">Suppr.</text>
+
+  <!-- Row 3 -->
+  <rect x="15" y="307" width="420" height="45" fill="#FFFFFF"/>
+  <rect x="15" y="352" width="420" height="1" fill="#E0DCD7"/>
+  <rect x="30" y="324" width="40" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <rect x="95" y="324" width="60" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="165" y="324" width="20" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="215" y="320" width="55" height="8" rx="2" fill="#1A1614" opacity="0.2"/>
+  <rect x="215" y="332" width="45" height="7" rx="2" fill="#1A1614" opacity="0.12"/>
+  <rect x="295" y="320" width="55" height="18" rx="3" fill="#B8654D" opacity="0.15"/>
+  <text x="301" y="333" fill="#B8654D" font-family="sans-serif" font-size="7">En transit</text>
+  <rect x="370" y="320" width="50" height="20" rx="4" fill="#B8654D"/>
+  <text x="377" y="334" fill="#EDE7DC" font-family="sans-serif" font-size="7" font-weight="bold">Suppr.</text>
+
+  <!-- Row 4 -->
+  <rect x="15" y="353" width="420" height="45" fill="#FAFAF8"/>
+  <rect x="15" y="398" width="420" height="1" fill="#E0DCD7"/>
+  <rect x="30" y="370" width="48" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <rect x="95" y="370" width="45" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="165" y="370" width="20" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="215" y="366" width="55" height="8" rx="2" fill="#1A1614" opacity="0.2"/>
+  <rect x="215" y="378" width="45" height="7" rx="2" fill="#1A1614" opacity="0.12"/>
+  <rect x="295" y="366" width="40" height="18" rx="3" fill="#4CAF50" opacity="0.15"/>
+  <text x="303" y="379" fill="#2E7D32" font-family="sans-serif" font-size="7">Livré</text>
+  <rect x="370" y="366" width="50" height="20" rx="4" fill="#B8654D"/>
+  <text x="377" y="380" fill="#EDE7DC" font-family="sans-serif" font-size="7" font-weight="bold">Suppr.</text>
+
+  <!-- Row 5 -->
+  <rect x="15" y="399" width="420" height="45" fill="#FFFFFF"/>
+  <rect x="30" y="416" width="42" height="8" rx="2" fill="#1A1614" opacity="0.3"/>
+  <rect x="95" y="416" width="50" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="165" y="416" width="20" height="8" rx="2" fill="#1A1614" opacity="0.25"/>
+  <rect x="215" y="412" width="55" height="8" rx="2" fill="#1A1614" opacity="0.2"/>
+  <rect x="215" y="424" width="45" height="7" rx="2" fill="#1A1614" opacity="0.12"/>
+  <rect x="295" y="412" width="50" height="18" rx="3" fill="#D4A574" opacity="0.2"/>
+  <text x="303" y="425" fill="#9A4B3F" font-family="sans-serif" font-size="7">En attente</text>
+  <rect x="370" y="412" width="50" height="20" rx="4" fill="#B8654D"/>
+  <text x="377" y="426" fill="#EDE7DC" font-family="sans-serif" font-size="7" font-weight="bold">Suppr.</text>
+</svg>
