@@ -2,5 +2,14 @@ services:
   portfolio:
     build: .
     restart: unless-stopped
-    ports:
-      - "8080:80"
+    networks:
+      - traefik-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio.rule=Host(`thandria.dev`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+
+networks:
+  traefik-network:
+    external: true
