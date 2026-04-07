@@ -1,6 +1,6 @@
 services:
   portfolio:
-    build: .
+    image: ghcr.io/thibaultand261/portfolio-v3:latest
     restart: unless-stopped
     networks:
       - traefik-network
