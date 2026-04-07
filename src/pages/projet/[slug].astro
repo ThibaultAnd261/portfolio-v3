@@ -265,10 +265,17 @@ const {
       gap: 2.5rem;
     }
 
+    .projet-page__content {
+      order: 2;
+    }
+
     .projet-page__body > :global(aside) {
+      order: 1;
       position: static;
-      border-top: 2px solid var(--sand);
-      padding-top: 2rem;
+      border-top: none;
+      border-bottom: 2px solid var(--sand);
+      padding-top: 0;
+      padding-bottom: 2rem;
     }
   }
 </style>
