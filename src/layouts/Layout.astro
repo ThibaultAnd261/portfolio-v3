@@ -24,6 +24,7 @@ const { title, description = "Portfolio - Ingénieur Créatif" } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<div id="page-transition" aria-hidden="true"></div>
 		<div id="loader" aria-hidden="true">
 			<div class="loader-inner">
 				<p class="loader-name">
@@ -214,19 +215,70 @@ const { title, description = "Portfolio - Ingénieur Créatif" } = Astro.props;
 		html.is-loading *:not(#loader, #loader *) {
 			animation-play-state: paused !important;
 		}
+
+		#page-transition {
+			position: fixed;
+			inset: 0;
+			background: var(--charcoal);
+			z-index: 9998;
+			transform: translateX(-100%);
+			transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+			pointer-events: none;
+		}
+
+		#page-transition.enter {
+			transform: translateX(0);
+			pointer-events: all;
+		}
+
+		#page-transition.exit {
+			transform: translateX(100%);
+		}
 	</style>
 
 	<script>
-		document.documentElement.classList.add('is-loading');
+		const overlay = document.getElementById('page-transition') as HTMLElement;
+		const loader = document.getElementById('loader') as HTMLElement;
+		const comingFromNav = sessionStorage.getItem('navigating');
 
-		window.addEventListener('load', () => {
+		// --- Loader ---
+		if (!comingFromNav) {
+			document.documentElement.classList.add('is-loading');
+			window.addEventListener('load', () => {
+				setTimeout(() => {
+					document.documentElement.classList.remove('is-loading');
+					loader.classList.add('hide');
+					setTimeout(() => loader.remove(), 900);
+				}, 1400);
+			});
+		} else {
+			loader?.remove();
+		}
+
+		// --- Transition de page ---
+		if (sessionStorage.getItem('navigating')) {
+			sessionStorage.removeItem('navigating');
+			overlay.classList.add('enter');
+			requestAnimationFrame(() => {
+				requestAnimationFrame(() => {
+					overlay.classList.add('exit');
+				});
+			});
+		}
+
+		// Départ : intercepter les clics sur liens internes
+		document.addEventListener('click', (e) => {
+			const link = (e.target as HTMLElement).closest('a');
+			if (!link) return;
+			const href = link.getAttribute('href');
+			if (!href || !href.startsWith('/') || link.target === '_blank') return;
+
+			e.preventDefault();
+			sessionStorage.setItem('navigating', 'true');
+			overlay.classList.add('enter');
 			setTimeout(() => {
-				const loader = document.getElementById('loader');
-				if (!loader) return;
-				document.documentElement.classList.remove('is-loading');
-				loader.classList.add('hide');
-				setTimeout(() => loader.remove(), 900);
-			}, 1400);
+				window.location.href = href;
+			}, 450);
 		});
 	</script>
 </html>
