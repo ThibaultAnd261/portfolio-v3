@@ -27,7 +27,7 @@ const { title, description = "Portfolio - Ingénieur Créatif" } = Astro.props;
 		<div id="loader" aria-hidden="true">
 			<div class="loader-inner">
 				<p class="loader-name">
-						{["T","h","i","b","a","u","l","t"].map((letter, i) => (
+						{["t","h","a","n","d","r","i","a", "."].map((letter, i) => (
 							<span class="loader-letter" style={`animation-delay: ${0.05 + i * 0.08}s`}>{letter}</span>
 						))}
 					</p>
@@ -210,13 +210,20 @@ const { title, description = "Portfolio - Ingénieur Créatif" } = Astro.props;
 		@keyframes loaderProgress {
 			to { width: 100%; }
 		}
+
+		html.is-loading *:not(#loader, #loader *) {
+			animation-play-state: paused !important;
+		}
 	</style>
 
 	<script>
+		document.documentElement.classList.add('is-loading');
+
 		window.addEventListener('load', () => {
 			setTimeout(() => {
 				const loader = document.getElementById('loader');
 				if (!loader) return;
+				document.documentElement.classList.remove('is-loading');
 				loader.classList.add('hide');
 				setTimeout(() => loader.remove(), 900);
 			}, 1400);
