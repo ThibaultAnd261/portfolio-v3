@@ -88,7 +88,7 @@ const { technos, collaborateurs, lien, github } = Astro.props;
     opacity: 0.5;
     margin: 0 0 0.75rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--sand);
+    border-bottom: 2px solid rgba(26, 22, 20, 0.08); /* charcoal rgba(26, 22, 20, 0.3) */
   }
 
   .sidebar__tags {
@@ -103,6 +103,7 @@ const { technos, collaborateurs, lien, github } = Astro.props;
   .tag {
     background: var(--sand);
     color: var(--charcoal);
+    border: 1px solid var(--charcoal);
     padding: 0.3em 0.7em;
     border-radius: 6px;
     font-size: 0.8rem;
