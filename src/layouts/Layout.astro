@@ -24,6 +24,18 @@ const { title, description = "Portfolio - Ingénieur Créatif" } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<div id="loader" aria-hidden="true">
+			<div class="loader-inner">
+				<p class="loader-name">
+						{["T","h","i","b","a","u","l","t"].map((letter, i) => (
+							<span class="loader-letter" style={`animation-delay: ${0.05 + i * 0.08}s`}>{letter}</span>
+						))}
+					</p>
+				<div class="loader-bar-track">
+					<div class="loader-bar"></div>
+				</div>
+			</div>
+		</div>
 		<slot />
 	</body>
 
@@ -132,5 +144,82 @@ const { title, description = "Portfolio - Ingénieur Créatif" } = Astro.props;
 			animation: fadeIn 0.8s ease 0.4s forwards;
 			opacity: 0;
 		}
+
+		/* Loader */
+		#loader {
+			position: fixed;
+			inset: 0;
+			background: var(--charcoal);
+			z-index: 9999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+		}
+
+		#loader.hide {
+			transform: translateY(-100%);
+		}
+
+		.loader-inner {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1.5rem;
+		}
+
+		.loader-name {
+			font-family: 'DM Serif Display', serif;
+			font-size: clamp(3.5rem, 12vw, 9rem);
+			color: var(--cream);
+			letter-spacing: -0.02em;
+			display: flex;
+			overflow: hidden;
+		}
+
+		.loader-letter {
+			display: inline-block;
+			opacity: 0;
+			transform: translateY(-60px);
+			animation: loaderReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+		}
+
+		.loader-bar-track {
+			width: clamp(180px, 40vw, 400px);
+			height: 3px;
+			background: rgba(249, 246, 241, 0.15);
+			border-radius: 999px;
+			overflow: hidden;
+		}
+
+		.loader-bar {
+			height: 100%;
+			width: 0%;
+			background: var(--copper);
+			border-radius: 999px;
+			animation: loaderProgress 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
+		}
+
+		@keyframes loaderReveal {
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes loaderProgress {
+			to { width: 100%; }
+		}
 	</style>
+
+	<script>
+		window.addEventListener('load', () => {
+			setTimeout(() => {
+				const loader = document.getElementById('loader');
+				if (!loader) return;
+				loader.classList.add('hide');
+				setTimeout(() => loader.remove(), 900);
+			}, 1400);
+		});
+	</script>
 </html>
